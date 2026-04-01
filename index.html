@@ -34,7 +34,7 @@
             video.controls = false
             video.src = "assets/video/" + queries.get("v")
             video.addEventListener("ended", (event) => {
-                window.location.href = queries.get("r")
+                window.location.href = atob(queries.get("r"))
             })
 
             setInterval(() => {
