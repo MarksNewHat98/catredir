@@ -1,49 +1,48 @@
 <!-- testurl: file:///home/<name>/apps/catredir/index.html?v=YXNzZXRzL3ZpZGVvL2NhdHNoYXR0ZXIud2VibQ&r=aHR0cHM6Ly9zLnNvZ2d5LmNhdC8 -->
 <!-- liveurl: https://marksnewhat98.github.io/catredir/?v=YXNzZXRzL3ZpZGVvL2NhdHNoYXR0ZXIud2VibQ&r=aHR0cHM6Ly9zLnNvZ2d5LmNhdC8 -->
 
-<!-- some headers and catshatter video from github.com/ssoggycat/soggy.cat/tree/main/website/github -->
+<!-- credits: some headers and catshatter video from github.com/ssoggycat/soggy.cat/tree/main/website/github -->
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-        <meta name="darkreader-lock">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="darkreader-lock">
 
-        <title> ︎</title>
-        <style type="text/css">
-            body {
-                background-color: #0d1117;
-                overflow: hidden;
-                margin: 0px;
-                padding: 0px;
-            }
+    <title>catredir</title>
+    <style type="text/css">
+      body {
+        background-color: #0d1117;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+      }
 
-            html, body {
-                height: 100%;
-                width: 100%;
-                margin: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <video id="video" width="1920" height="1080" style="width:100%; height:100%; position: absolute;" autoplay playsinline></video>
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="video" width="1920" height="1080" style="width:100%; height:100%; position: absolute;" autoplay playsinline></video>
 
-        <script>
-            const queries = new URLSearchParams(window.location.search)
+    <script>
+      var queries = new URLSearchParams(window.location.search)
+      var video = document.querySelector("#video")
 
-            const video = document.querySelector("#video")
+      var interval = setInterval(() => {
+        video.play()
+      }, 100)
 
-            const interval = setInterval(() => {
-                video.play()
-            }, 100)
+      video.addEventListener("ended", (event) => {
+        clearInterval(interval)
+        //window.location.href = atob(queries.get("r"))
+      })
 
-            video.addEventListener("ended", (event) => {
-                clearInterval(interval);
-                window.location.href = atob(queries.get("r"))
-            })
-
-            video.src = atob(queries.get("v"))
-        </script>
-    </body>
+      video.src = atob(queries.get("v"))
+    </script>
+  </body>
 </html>
