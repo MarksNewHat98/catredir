@@ -39,7 +39,7 @@
 
       video.addEventListener("ended", (event) => {
         clearInterval(interval)
-        //window.location.href = atob(queries.get("r"))
+        window.location.href = atob(queries.get("r"))
       })
 
       video.src = atob(queries.get("v"))
